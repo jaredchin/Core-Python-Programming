@@ -1,0 +1,5 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+acm.hit.edu.cn	FALSE	/	FALSE		PHPSESSID	8ae92fd1783866838f78431f70bda376
