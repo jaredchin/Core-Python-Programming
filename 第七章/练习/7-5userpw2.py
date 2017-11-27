@@ -1,25 +1,28 @@
 import hashlib
+import re
 
 db = {}
 
 
-def newuser():
-    prompt = 'login desired:'
+def newuser(name, pwd):
     while True:
-        name = input(prompt)
-        if name in db:
-            prompt = 'name taken, try another:'
-            continue
+        if re.match(r'\w', name):
+            if name in db:
+                prompt = 'name taken, try another:'
+                continue
+            else:
+                break
         else:
-            break
+            print('Username should be made of a-z 0-9 _')
     pwd = input('passwd:')
     db[name] = encodepass(pwd)
 
 
 def olduser():
-    name = input('login:')
+    name = input('login:').lower()
     pwd = input('password:')
     passwd = db.get(name)
+
     if passwd == encodepass(pwd):
         print('welcome back, %s' % name)
     else:
@@ -80,4 +83,3 @@ def showmenu():
 
 if __name__ == '__main__':
     showmenu()
-
