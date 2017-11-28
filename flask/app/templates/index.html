@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+</div>
+{% if match_list %}
+    <table class="todo-table pure-table pure-table-horizontal pure-table-striped">
+        <thead>
+            <tr>
+                <th>主队</th>
+                <th>客队</th>
+                <th>主队比分</th>
+                <th>客队比分</th>
+                <th>结果</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for match in match_list %}
+        <tr>
+            <td>{{ match.hometeam}}</td>
+            <td>{{ match.guestteam }}</td>
+            <td>{{ match.htscore }}</td>
+            <td>{{ match.gtscore }}</td>
+            <td>{{ match.result }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif%}
+{% endblock %}

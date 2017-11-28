@@ -5,10 +5,13 @@ from flask_moment import Moment
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:qzd!@#123@'118.89.140.240':3306"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:root@localhost:3306/pingjufenxi"
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+db = SQLAlchemy(app)
 
 manager = Manager(app)
 bootstrap = Bootstrap(app)
