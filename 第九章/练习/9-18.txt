@@ -1,0 +1,3 @@
+So far we only configured the logger your application created itself. Other libraries might log themselves as well. For example, SQLAlchemy uses logging heavily in its core. While there is a method to configure all loggers at once in the logging package, I would not recommend using it. There might be a situation in which you want to have multiple separate applications running side by side in the same Python interpreter and then it becomes impossible to have different logging setups for those.
+
+Instead, I would recommend figuring out which loggers you are interested in, getting the loggers with the getLogger() function and iterating over them to attach handlers:
