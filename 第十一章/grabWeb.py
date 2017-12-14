@@ -9,7 +9,7 @@ def firstNonBlank(lines):
 
 
 def firstLast(webpage):
-    f = open(webpage)
+    f = open(webpage,encoding='utf-8')
     lines = f.readlines()
     f.close()
     print(firstNonBlank(lines), end='')
@@ -17,7 +17,7 @@ def firstLast(webpage):
     print(firstNonBlank(lines), end='')
 
 
-def download(url='http://www.mocuz.com', process=firstLast):
+def download(url='http://www.renren.com', process=firstLast):
     try:
         retval = request.urlretrieve(url)[0]
     except IOError:
