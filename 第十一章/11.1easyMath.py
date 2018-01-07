@@ -1,12 +1,12 @@
-from operator import add, sub
+from operator import add, sub, mul, floordiv
 from random import randint, choice
 
-ops = {'+': add, '-': sub}
+ops = {'+': add, '-': sub, '*': mul, '/': floordiv}
 MAXTRIES = 2
 
 
 def doprob():
-    op = choice('+-')
+    op = choice('+-*/')
     nums = [randint(1,10) for i in range(2)]
     nums.sort(reverse=True)
     ans = ops[op](*nums)
