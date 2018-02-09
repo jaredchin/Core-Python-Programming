@@ -1,5 +1,6 @@
 from time import time, ctime
 
+
 class TimedWrapMe(object):
     def __init__(self, obj):
         self.__data = obj
