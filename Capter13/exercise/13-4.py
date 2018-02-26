@@ -44,12 +44,12 @@ class UserDatabase(object):
             else:
                 print('Password or username is not right, try again')
                 continue
-        timeNow = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-        self.db[user] = hashlib.md5(psw.encode()).hexdigest(), timeNow
         diffTime = float(time.time() - time.mktime(time.strptime(self.db[user][1], '%Y-%m-%d %H:%M:%S'))) / 3600
 
         if diffTime <= 4:
             print('Your already logged in at: ', self.db[user][1])
+        timeNow = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        self.db[user] = hashlib.md5(psw.encode()).hexdigest(), timeNow
         print('>***Welcome, %s!***' % user)
 
     def admin(self):
