@@ -17,9 +17,10 @@ while True:
     print('...connected from:', addr)
 
     while True:
-        data = tcpSerSock.recv(BUFSIZ)
+        data = tcpCliSock.recv(BUFSIZ)
         if not data:
+            print('not found data')
             break
-        tcpSerSock.send('[%s] %s' %(ctime(), data))
-        tcpSerSock.close()
+        tcpCliSock.send(('[%s] %s' % (ctime(), data)).encode('utf-8'))
+    tcpCliSock.close()
 tcpSerSock.close()
