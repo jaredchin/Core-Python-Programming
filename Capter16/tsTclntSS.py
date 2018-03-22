@@ -17,3 +17,4 @@ while True:
         break
     print(data.strip())
     tcpCliSock.close()
+
