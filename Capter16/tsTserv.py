@@ -18,6 +18,7 @@ while True:
 
     while True:
         data = tcpCliSock.recv(BUFSIZ)
+        print(data.decode('utf-8'))
         if not data:
             print('not found data')
             break
