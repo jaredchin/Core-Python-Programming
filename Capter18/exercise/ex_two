@@ -1,0 +1,7 @@
+python多线程在IO密集型还是计算密集型表现更好
+
+在IO密集型表现更好
+
+GIL 的全称为 Global Interpreter Lock ，意即全局解释器锁。在 Python 语言的主流实现 CPython 中，GIL 是一个货真价实的全局线
+程锁，在解释器解释执行任何 Python 代码时，都需要先获得这把锁才行，在遇到 I/O 操作时会释放这把锁。如果是纯计算的程序，没有
+ I/O 操作，解释器会每隔 100 次操作就释放这把锁，让别的线程有机会执行（这个次数可以通过sys.setcheckinterval 来调整）。
